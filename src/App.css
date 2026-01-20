@@ -1,0 +1,147 @@
+/* =========================
+   APP CONTAINER
+========================= */
+.app {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.header p {
+  max-width: 640px;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+/* =========================
+   SUMMARY (GRID)
+========================= */
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   FORM SECTION
+========================= */
+.formSection {
+  margin-bottom: 3rem;
+}
+
+.formSection h2 {
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   TRANSACTION FORM
+========================= */
+.transactionForm {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .transactionForm {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   TRANSACTIONS LIST
+========================= */
+.transactionList {
+  margin-top: 2rem;
+}
+
+/* =========================
+   TRANSACTION ITEM
+========================= */
+.transactionItem {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+}
+
+.transactionItem + .transactionItem {
+  margin-top: 0.75rem;
+}
+
+.transactionItem:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+}
+
+.transactionItem span {
+  font-weight: 500;
+}
+
+.transactionItem .income {
+  color: var(--success);
+}
+
+.transactionItem .expense {
+  color: var(--danger);
+}
+
+/* =========================
+   DELETE BUTTON
+========================= */
+.deleteButton {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 8px;
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+}
+
+.deleteButton:hover {
+  background: rgba(239, 68, 68, 0.2);
+  transform: scale(1.05);
+}
+
+.empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}

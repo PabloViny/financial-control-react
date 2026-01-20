@@ -1,0 +1,70 @@
+.list {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.description {
+  color: #fff;
+}
+
+.value {
+  font-weight: 600;
+}
+
+.income {
+  color: #22c55e;
+}
+
+.expense {
+  color: #ef4444;
+}
+
+.remove {
+  background: rgba(255, 77, 77, 0.1);
+  border: none;
+  color: #ff4d4d;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.35rem 0.5rem;
+  line-height: 1;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.remove:hover {
+  background: rgba(255, 77, 77, 0.2);
+  color: #ff1a1a;
+}
+
+.valueWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.empty {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}

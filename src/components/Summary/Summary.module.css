@@ -1,0 +1,40 @@
+.summary {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1;
+  min-width: 220px;
+  padding: 1.5rem;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.card strong {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.income strong {
+  color: #22c55e;
+}
+
+.expense strong {
+  color: #ef4444;
+}
+
+.balance strong {
+  color: #38bdf8;
+}
