@@ -7,21 +7,34 @@ export const TransactionForm = () => {
 
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
+  const [colorTransaction, setColorTransaction] = useState("income");
 
   function handleSubmit(e) {
     e.preventDefault();
 
     if (!description || !amount) return;
 
+    const numericValue = Number(amount);
+    const finalValue =
+      colorTransaction === "expense" ? -numericValue : numericValue;
+
     addTransaction({
       id: crypto.randomUUID(),
       description,
-      amount: Number(amount),
+      amount: finalValue,
     });
 
     setDescription("");
     setAmount("");
   }
+
+  const handleAmountChange = (e) => {
+    const value = e.target.value;
+
+    // Permite apenas números e um único ponto decimal
+    if (!/^\d*\.?\d*$/.test(value)) return;
+    setAmount(value);
+  };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -36,13 +49,28 @@ export const TransactionForm = () => {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <input
-          className={styles.input}
-          type="number"
-          placeholder="Valor (use negativo para saída)"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-        />
+        <div className={styles.fieldValue}>
+          <input
+            className={styles.input}
+            type="text"
+            inputMode="decimal"
+            placeholder="Valor"
+            value={amount}
+            onChange={handleAmountChange}
+          />
+          <button
+            type="button"
+            className={`${styles.toggleButton} ${styles[colorTransaction]}`}
+            onClick={() =>
+              setColorTransaction((prev) =>
+                prev === "income" ? "expense" : "income",
+              )
+            }
+          >
+            <span className={styles.incomeLabel}>⬆ Entrada</span>
+            <span className={styles.expenseLabel}>⬇ Saída</span>
+          </button>
+        </div>
 
         <button className={styles.button} type="submit">
           Adicionar
@@ -50,7 +78,7 @@ export const TransactionForm = () => {
       </div>
 
       <span className={styles.hint}>
-        Use valores negativos para despesas
+        Selecione Entrada ou Saída para definir o valor
       </span>
     </form>
   );
